@@ -1,7 +1,5 @@
 window.addEventListener("load", solve);
 
-// TODO: The Concat-List exercise is still not finished, must add functionality to the 'save' button and add functionality to the 'contacts' list and also I have to add a delete button for each added li element to the contacts list.
-
 function solve() {
   const formElement = document.querySelector('form');
   const nameElement = document.getElementById('name');
@@ -54,9 +52,16 @@ function solve() {
     const saveButton = document.createElement('button');
     saveButton.setAttribute('class', 'save-btn');
     saveButton.addEventListener('click', () => {
-      console.log('save button clicked!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-    });
+      contactListElement.appendChild(liElement);
+      liElement.removeChild(buttonsDivElement);
+      const deleteButton = document.createElement('button');
+      deleteButton.setAttribute('class', 'del-btn');
+      liElement.appendChild(deleteButton);
 
+      deleteButton.addEventListener('click', () => {
+        contactListElement.removeChild(liElement);
+      });
+    });
 
 
     // Appending the buttons to the Div Element
